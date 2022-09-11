@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FileAnalyser {
+public class TextFileAnalyser {
 
     private String content = "";
 
@@ -18,7 +18,7 @@ public class FileAnalyser {
         words.forEach(word -> averageNumberOfVowelsPerWordGroup.put(Map.of(Set.copyOf(findVowels(word)), word.length()), findAverage(word, words)));
 
         averageNumberOfVowelsPerWordGroup.forEach((key, value) -> content = content.concat(key + " -> " + String.format("%.1f", value)).concat("\n"));
-        TextFile textFile = new TextFile(Path.of(path).getFileName().toString(), content, collectWords(text).size(), "file_" + LocalDateTime.now());
+        TextFile textFile = new TextFile(Path.of(path).getFileName().toString(), content, collectWords(text).size(), "file_" + LocalDateTime.now().toString().replace(":", "_"));
         content = "";
         return textFile;
 

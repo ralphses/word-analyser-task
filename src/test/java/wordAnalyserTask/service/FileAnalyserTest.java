@@ -2,7 +2,6 @@ package wordAnalyserTask.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import wordAnalyserTask.model.TextFile;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,22 +11,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FileAnalyserTest {
 
-    private FileAnalyser fileAnalyser;
+    private TextFileAnalyser fileAnalyser;
 
     @BeforeEach
     void createFile() {
-        fileAnalyser = new FileAnalyser();
+        fileAnalyser = new TextFileAnalyser();
     }
 
     @Test
     void analyse() {
-        TextFile textFile = TextFile.builder()
-                .fileName("fileName")
-                .content("{[a, e]=5} -> 2.0\n" +
-                        "{[e, o]=7} -> 2.0")
-                .totalWords(2)
-                .path("path")
-                .build();
         assertTrue(fileAnalyser.analyse("Large Content", "Path").getContent().contains("2.0"));
     }
 

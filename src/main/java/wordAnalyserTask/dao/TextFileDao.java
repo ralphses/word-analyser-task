@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 import static java.nio.file.Files.*;
-import static java.nio.file.Files.lines;
 
 public class TextFileDao {
 

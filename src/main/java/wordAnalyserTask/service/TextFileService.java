@@ -4,7 +4,6 @@ import wordAnalyserTask.model.TextFile;
 
 import java.io.IOException;
 
-
 public interface TextFileService {
 
     String saveFileAnalysisResult(TextFile textFile) throws IOException;

@@ -15,6 +15,11 @@ public class TextFileController {
         initialize();
     }
 
+    /**
+     * Loads a sample text file from the resources directory,
+     * analysis the uploaded file and writes the result to a file
+     */
+
     public void start(){
         try {
             printResponse(textFileService.analyseDefaultTextFile());
@@ -23,6 +28,8 @@ public class TextFileController {
         }
 
         displayWelcome();
+
+        //Accepts a new directory for a .txt file to be analysed
         String newPath = new Scanner(System.in).next();
         Optional<String> responsePathOptional = Optional.of("");
 

@@ -9,20 +9,21 @@ public class TextFileServiceImpl implements TextFileService {
 
     private static final String DEFAULT_FILE_PATH = "src/main/resources/defaultText.txt";
     private TextFileDao textFileDao;
-    private  FileAnalyser fileAnalyser;
-
+    private TextFileAnalyser fileAnalyser;
     public TextFileServiceImpl() {
         initialize();
     }
+
     private void initialize() {
         this.textFileDao = new TextFileDao();
-        fileAnalyser = new FileAnalyser();
+        fileAnalyser = new TextFileAnalyser();
     }
 
     @Override
     public String saveFileAnalysisResult(TextFile textFile) {
         return textFileDao.writeAnalysedFile(textFile);
     }
+
     @Override
     public String analyseDefaultTextFile() throws IOException {
         String defaultReadFile = textFileDao.uploadFile(DEFAULT_FILE_PATH);
